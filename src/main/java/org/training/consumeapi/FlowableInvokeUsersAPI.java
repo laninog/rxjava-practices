@@ -6,13 +6,13 @@ import org.slf4j.LoggerFactory;
 
 import static org.training.utils.Utils.invoke;
 
-public class FlowableInvokeAPI {
+public class FlowableInvokeUsersAPI {
 
-    private static final Logger log = LoggerFactory.getLogger(FlowableInvokeAPI.class);
+    private static final Logger log = LoggerFactory.getLogger(FlowableInvokeUsersAPI.class);
 
     public static void main(String[] args) {
 
-        new FlowableInvokeAPI()
+        new FlowableInvokeUsersAPI()
                 .invokeURL("https://randomuser.me/api/")
                 .subscribe(result -> log.info("Result {}", result));
 

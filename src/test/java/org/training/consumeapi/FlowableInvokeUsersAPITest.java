@@ -4,15 +4,15 @@ import io.reactivex.subscribers.TestSubscriber;
 import org.junit.Before;
 import org.junit.Test;
 
-public class BasicInvokeAPITest {
+public class FlowableInvokeUsersAPITest {
 
-    private FlowableInvokeAPI flowable;
+    private FlowableInvokeUsersAPI flowable;
 
     private TestSubscriber<String> testSubscriber;
 
     @Before
     public void init() {
-        flowable = new FlowableInvokeAPI();
+        flowable = new FlowableInvokeUsersAPI();
         testSubscriber = new TestSubscriber<>();
     }
 
