@@ -10,4 +10,12 @@ public class Utils {
         return result;
     }
 
+    public static void hold(long millis) {
+        try {
+            Thread.sleep(millis);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
