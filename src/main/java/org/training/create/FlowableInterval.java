@@ -10,7 +10,7 @@ import static org.training.utils.Utils.hold;
 
 public class FlowableInterval {
 
-    private static final Logger log = LoggerFactory.getLogger(FlowableCreateSimple.class);
+    private static final Logger log = LoggerFactory.getLogger(FlowableInterval.class);
 
     public static void main(String[] args) {
 

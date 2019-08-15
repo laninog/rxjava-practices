@@ -6,7 +6,7 @@ import org.slf4j.LoggerFactory;
 
 public class FlowableMapSimple {
 
-    private static final Logger log = LoggerFactory.getLogger(FlowableCreateSimple.class);
+    private static final Logger log = LoggerFactory.getLogger(FlowableMapSimple.class);
 
     public static void main(String[] args) {
 
