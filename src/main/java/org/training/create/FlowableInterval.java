@@ -20,7 +20,7 @@ public class FlowableInterval {
         seconds.subscribe(t ->
                 log.info("{}", t));
 
-        hold(2000);
+        hold(20000);
     }
 
 }
