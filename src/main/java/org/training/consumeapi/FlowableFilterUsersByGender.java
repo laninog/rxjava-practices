@@ -2,11 +2,11 @@ package org.training.consumeapi;
 
 import com.jayway.jsonpath.JsonPath;
 import io.reactivex.Flowable;
-import net.minidev.json.JSONArray;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.LinkedHashMap;
 
 import static org.training.utils.Utils.invoke;
 
