@@ -17,6 +17,7 @@ public class FlowableConcat {
         Flowable<String> flowableTwo =
                 Flowable.just("Zeta", "Eta", "Theta");
 
+        // Keep flowable concat order
         Flowable.concat(flowableOne, flowableTwo)
                 .subscribe(w -> log.info("Word {}", w));
 
