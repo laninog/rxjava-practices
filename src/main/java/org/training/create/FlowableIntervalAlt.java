@@ -15,7 +15,9 @@ public class FlowableIntervalAlt {
     public static void main(String[] args) {
 
         Flowable<Long> seconds =
-                Flowable.interval(1, TimeUnit.SECONDS);
+                Flowable.interval(1, TimeUnit.SECONDS)
+                        .doOnNext(n -> log.info("Received {}", n))
+                        .doOnSubscribe(s -> log.info("Subscribed {}", s));
 
         seconds.subscribe(t ->
                 log.info("One {}", t));
