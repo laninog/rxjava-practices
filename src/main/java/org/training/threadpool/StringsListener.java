@@ -2,13 +2,13 @@ package org.training.threadpool;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
-public abstract class StringListener {
+public abstract class StringsListener {
 
     private static final AtomicInteger COUNTER = new AtomicInteger(1);
 
     private final int ID;
 
-    public StringListener() {
+    public StringsListener() {
         ID = COUNTER.getAndIncrement();
     }
 
