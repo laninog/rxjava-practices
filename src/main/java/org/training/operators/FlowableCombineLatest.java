@@ -8,9 +8,9 @@ import java.util.concurrent.TimeUnit;
 
 import static org.training.utils.Utils.hold;
 
-public class FlowableZipAsyncError {
+public class FlowableCombineLatest {
 
-    private static final Logger log = LoggerFactory.getLogger(FlowableZipAsyncError.class);
+    private static final Logger log = LoggerFactory.getLogger(FlowableCombineLatest.class);
 
     public static void main(String[] args) {
 
@@ -20,11 +20,11 @@ public class FlowableZipAsyncError {
         Flowable<String> fast =
                 Flowable.interval(10, TimeUnit.MILLISECONDS).map(i -> "Fast".concat(i.toString()));
 
-        Flowable<String> zip = Flowable.zip(slow, fast,
+        Flowable<String> combine = Flowable.combineLatest(slow, fast,
                 (s, f) -> s.concat(" : ").concat(f));
 
-        // A lack of requests will occurs because slow stream
-        zip.subscribe(sf -> log.info("{}", sf),
+        // If an event occurs, it will combine with latest from the other flow
+        combine.subscribe(sf -> log.info("{}", sf),
                 ex -> log.error("Error : {}", ex.getMessage()));
 
         hold(2000);

@@ -24,6 +24,7 @@ public class FlowableZipSynchronous {
         Flowable<Long> zip = Flowable.zip(intervalA.timestamp(), intervalB.timestamp(),
                 (t, w) -> t.time() - w.time());
 
+        // Events in both flows are synchronized
         zip.subscribe(tt -> log.info("Time between {}", tt));
 
         hold(6000);
