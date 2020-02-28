@@ -1,7 +1,6 @@
 package org.training.advance;
 
 import io.netty.handler.codec.LineBasedFrameDecoder;
-import io.netty.handler.codec.string.StringDecoder;
 import io.reactivex.netty.protocol.tcp.server.TcpServer;
 import rx.Observable;
 
@@ -19,7 +18,7 @@ public class NettyTcpServer {
                 .newServer(8080)
                 .<String, String>pipelineConfigurator(pipeline -> {
                     pipeline.addLast(new LineBasedFrameDecoder(1024));
-                    pipeline.addLast(new StringDecoder(UTF_8));
+                    pipeline.addLast(new CleanDecoder(UTF_8));
                 })
                 .start(connection -> {
                     Observable<String> output = connection
@@ -34,7 +33,7 @@ public class NettyTcpServer {
     private static Observable<String> eurToUsd(BigDecimal eur) {
         return Observable
                 .just(eur.multiply(RATE))
-                .map(amount -> eur + " EUR is " + amount + " USD\n")
+                .map(amount -> eur + " EUR is " + amount + " USD\r\n")
                 .delay(1, TimeUnit.SECONDS);
     }
 
