@@ -1,7 +1,10 @@
-package org.training.advance;
+package org.training.advance.server;
 
 import io.netty.handler.codec.LineBasedFrameDecoder;
 import io.reactivex.netty.protocol.tcp.server.TcpServer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.training.advance.CleanDecoder;
 import rx.Observable;
 
 import java.math.BigDecimal;
@@ -10,6 +13,8 @@ import java.util.concurrent.TimeUnit;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
 public class NettyTcpServer {
+
+    private static final Logger log = LoggerFactory.getLogger(NettyTcpServer.class);
 
     private static final BigDecimal RATE = new BigDecimal("1.06448");
 
@@ -31,10 +36,11 @@ public class NettyTcpServer {
     }
 
     private static Observable<String> eurToUsd(BigDecimal eur) {
+        log.info("EurToUsd {}", eur.doubleValue());
         return Observable
                 .just(eur.multiply(RATE))
                 .map(amount -> eur + " EUR is " + amount + " USD\r\n")
-                .delay(1, TimeUnit.SECONDS);
+                .delay(200, TimeUnit.MILLISECONDS);
     }
 
 }
